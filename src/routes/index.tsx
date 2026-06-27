@@ -12,6 +12,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,6 +51,7 @@ function Index() {
       <FAQ />
       <Contact />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

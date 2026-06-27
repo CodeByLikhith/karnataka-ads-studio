@@ -13,7 +13,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-28 md:py-36">
+    <section id="services" className="py-32 md:py-44">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
           eyebrow="Services"
@@ -21,7 +21,7 @@ export function Services() {
           description="One studio, every creative output. We replace agencies, freelancers and edit suites with a single AI-native workflow."
         />
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((s) => (
             <article
               key={s.title}
