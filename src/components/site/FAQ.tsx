@@ -13,7 +13,7 @@ const faqs = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-28 md:py-36">
+    <section className="py-32 md:py-44">
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeader
           eyebrow="FAQ"
