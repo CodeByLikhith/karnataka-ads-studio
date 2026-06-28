@@ -30,10 +30,6 @@ export function Services() {
               <div className="text-xs font-mono text-gold/70 tracking-widest">{s.num}</div>
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{s.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              <div className="mt-8 flex items-center text-xs text-muted-foreground group-hover:text-gold transition-colors">
-                <span>Learn more</span>
-                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-              </div>
               <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"
                    style={{ background: "radial-gradient(400px circle at var(--mx,50%) var(--my,0%), oklch(0.82 0.13 86 / 0.08), transparent 40%)" }} />
             </article>
