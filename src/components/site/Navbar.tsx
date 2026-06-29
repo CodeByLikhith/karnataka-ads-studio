@@ -44,15 +44,26 @@ export function Navbar() {
           </a>
 
           <nav className="hidden md:flex items-center gap-1">
-            {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5"
-              >
-                {n.label}
-              </a>
-            ))}
+            {nav.map((n) =>
+              n.to ? (
+                <Link
+                  key={n.label}
+                  to={n.to}
+                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5"
+                  activeProps={{ className: "px-4 py-2 text-sm text-foreground rounded-full bg-white/5" }}
+                >
+                  {n.label}
+                </Link>
+              ) : (
+                <a
+                  key={n.label}
+                  href={n.href}
+                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5"
+                >
+                  {n.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -78,16 +89,27 @@ export function Navbar() {
 
         {open && (
           <div className="md:hidden mt-2 glass rounded-3xl p-4 reveal">
-            {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setOpen(false)}
-                className="block px-4 py-3 text-sm text-foreground hover:text-gold transition-colors"
-              >
-                {n.label}
-              </a>
-            ))}
+            {nav.map((n) =>
+              n.to ? (
+                <Link
+                  key={n.label}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-3 text-sm text-foreground hover:text-gold transition-colors"
+                >
+                  {n.label}
+                </Link>
+              ) : (
+                <a
+                  key={n.label}
+                  href={n.href}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-3 text-sm text-foreground hover:text-gold transition-colors"
+                >
+                  {n.label}
+                </a>
+              ),
+            )}
             <a
               href="#contact"
               onClick={() => setOpen(false)}
