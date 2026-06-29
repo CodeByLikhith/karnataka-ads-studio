@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png.asset.json";
 
-const nav = [
-  { label: "Home", href: "#home" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Packages", href: "#packages" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+type NavItem = { label: string; href?: string; to?: string };
+
+const nav: NavItem[] = [
+  { label: "Home", href: "/#home" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Case Studies", to: "/case-studies" },
+  { label: "Packages", href: "/#packages" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
