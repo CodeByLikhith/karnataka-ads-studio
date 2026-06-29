@@ -7,7 +7,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 
 const CANONICAL = "https://karnataka-ads-studio.lovable.app/case-studies";
 
-export const Route = createFileRoute("/case-studies")({
+export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
       { title: "Case Studies — AI Creative Performance | Karnataka Ads Studio" },
