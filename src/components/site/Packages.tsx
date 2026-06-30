@@ -1,13 +1,12 @@
 import { SectionHeader } from "./SectionHeader";
+import { Check } from "lucide-react";
 
 type Pkg = {
   name: string;
-  badge: string;
   price: string;
   period: string;
   desc: string;
   features: string[];
-  bonus: string[];
   cta: string;
   highlighted?: boolean;
 };
@@ -15,81 +14,98 @@ type Pkg = {
 const packages: Pkg[] = [
   {
     name: "Launch",
-    badge: "🚀",
-    price: "₹12,999",
+    price: "₹3,999",
     period: "/ month",
-    desc: "For brands shipping their first AI creative drop.",
+    desc: "For new and growing brands testing high-quality AI ad creatives.",
     features: [
-      "8 Performance-Focused AI Ad Creatives",
-      "12 Performance Static Creatives",
-      "Product Research",
-      "Competitor Creative Research",
-      "Creative Strategy",
-      "Script Writing",
-      "Storyboards",
-      "AI UGC Videos",
-      "AI Voiceovers",
-      "2 Revisions",
+      "3 AI Ad Creatives",
+      "3 Static Creatives",
+      "Basic Creative Strategy",
+      "1 Revision per Creative",
+      "Delivery in 3–4 Working Days",
+      "Dedicated WhatsApp Support",
     ],
-    bonus: ["Instagram Post Scheduling", "Caption Writing", "Hashtag Strategy", "Feed Planning"],
-    cta: "Book Launch Package",
+    cta: "Get Started",
   },
   {
     name: "Growth",
-    badge: "📈",
-    price: "₹19,999",
+    price: "₹12,999",
     period: "/ month",
-    desc: "Our most popular plan for scaling brands.",
+    desc: "For scaling brands shipping creative weekly.",
     features: [
-      "14 Performance-Focused AI Ad Creatives",
-      "18 Performance Static Creatives",
-      "Product Research",
-      "Competitor Research",
+      "10 AI Ad Creatives",
+      "10 Static Creatives",
       "Creative Strategy",
-      "Multiple Hook Variations",
       "Script Writing",
-      "Storyboards",
-      "AI UGC Videos",
-      "AI Voiceovers",
-      "Multi-language Creatives",
+      "Storyboarding",
       "Priority Support",
-      "3 Revisions",
+      "Faster Delivery",
     ],
-    bonus: ["Instagram Post Scheduling", "Caption Writing", "Hashtag Strategy", "Monthly Content Calendar"],
-    cta: "Book Growth Package",
+    cta: "Get Started",
     highlighted: true,
   },
   {
     name: "Scale",
-    badge: "🚀",
+    price: "₹19,999",
+    period: "/ month",
+    desc: "For brands ready to scale paid acquisition.",
+    features: [
+      "15 AI Ad Creatives",
+      "15 Static Creatives",
+      "Creative Strategy",
+      "Script Writing",
+      "Storyboarding",
+      "Priority Delivery",
+      "Monthly Creative Planning",
+    ],
+    cta: "Scale Faster",
+  },
+  {
+    name: "Enterprise",
     price: "₹29,999",
     period: "/ month",
-    desc: "End-to-end creative partner for serious brands.",
+    desc: "End-to-end creative partner for high-volume brands.",
     features: [
-      "22 Performance-Focused AI Ad Creatives",
-      "30 Performance Static Creatives",
-      "Advanced Product Research",
-      "Weekly Competitor Creative Analysis",
-      "Creative Strategy",
-      "Fresh Creative Concepts",
-      "Hook Variations",
+      "25 AI Ad Creatives",
+      "25 Static Creatives",
+      "Complete Creative Strategy",
       "Script Writing",
-      "Storyboards",
-      "AI UGC Videos",
-      "AI Voiceovers",
-      "Multi-language Creatives",
-      "Dedicated Creative Manager",
+      "Storyboarding",
+      "Monthly Creative Planning",
+      "Highest Priority Support",
+      "Fastest Delivery",
     ],
-    bonus: [
-      "Complete Instagram Page Management",
-      "Post Scheduling",
-      "Caption Writing",
-      "Hashtag Strategy",
-      "Feed Planning",
-      "Monthly Content Calendar",
-    ],
-    cta: "Book Scale Package",
+    cta: "Book a Call",
   },
+];
+
+const setupIncludes = [
+  "Meta Pixel Setup & Verification",
+  "Conversion Tracking Setup",
+  "Events Configuration",
+  "Campaign Structure Setup",
+  "Audience Setup",
+  "Basic Account Audit",
+  "Business Manager Review",
+];
+
+const managementIncludes = [
+  "Campaign Management",
+  "Weekly Optimization",
+  "Budget Management",
+  "Audience Optimization",
+  "Creative Performance Testing",
+  "ROAS & Performance Monitoring",
+  "Monthly Performance Report",
+  "Strategy Recommendations",
+];
+
+const managementFactors = [
+  "Number of Campaigns",
+  "Monthly Ad Spend",
+  "Number of Ad Sets",
+  "Creative Testing Requirements",
+  "Optimization Frequency",
 ];
 
 export function Packages() {
@@ -97,76 +113,82 @@ export function Packages() {
     <section id="packages" className="py-32 md:py-44">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Packages"
+          eyebrow="Pricing"
           align="center"
-          title={<>Pricing built for <span className="text-gradient-gold italic font-normal">ambitious brands.</span></>}
+          title={
+            <>
+              Pricing built for{" "}
+              <span className="text-gradient-gold italic font-normal">ambitious brands.</span>
+            </>
+          }
           description="Transparent monthly retainers. No hidden fees. Cancel anytime."
         />
 
-        <div className="mt-20 grid md:grid-cols-3 gap-5 items-start">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
           {packages.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-[2rem] transition-all duration-500 flex flex-col ${
+              className={`group relative rounded-[2rem] flex flex-col transition-all duration-500 ${
                 p.highlighted
-                  ? "bg-gradient-to-b from-surface-elevated via-surface to-background border border-gold/40 shadow-gold md:-translate-y-4"
+                  ? "bg-gradient-to-b from-surface-elevated via-surface to-background border border-gold/40 shadow-gold xl:-translate-y-3"
                   : "glass hover:-translate-y-1 hover:border-white/15"
               }`}
             >
               {p.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gold text-primary-foreground text-[10px] font-semibold uppercase tracking-[0.2em]">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gold text-primary-foreground text-[10px] font-semibold uppercase tracking-[0.2em] whitespace-nowrap">
                   Most Popular
                 </div>
               )}
 
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl" aria-hidden>{p.badge}</span>
-                  <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{p.name}</div>
+              <div className="p-8">
+                <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                  {p.name}
                 </div>
 
-                <div className="mt-8 flex items-baseline gap-1.5">
-                  <span className={`text-5xl md:text-6xl font-semibold tracking-tight ${p.highlighted ? "text-gradient-gold" : ""}`}>
+                <div className="mt-6 flex items-baseline gap-1.5">
+                  <span
+                    className={`text-4xl md:text-5xl font-semibold tracking-tight ${
+                      p.highlighted ? "text-gradient-gold" : ""
+                    }`}
+                  >
                     {p.price}
                   </span>
                   <span className="text-sm text-muted-foreground">{p.period}</span>
                 </div>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed min-h-[3rem]">
+                  {p.desc}
+                </p>
               </div>
 
               <div className="hairline mx-8" />
 
-              <div className="p-8 md:p-10 flex-1">
+              <div className="p-8 flex-1">
                 <ul className="space-y-3.5">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+                      <Check
+                        className={`mt-0.5 h-4 w-4 shrink-0 ${
+                          p.highlighted ? "text-gold" : "text-foreground/70"
+                        }`}
+                        strokeWidth={2.5}
+                      />
                       <span className="text-foreground/90 leading-relaxed">{f}</span>
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-8 pt-6 border-t border-border">
-                  <div className="text-xs uppercase tracking-[0.25em] text-gold mb-4">🎁 Complimentary</div>
-                  <ul className="space-y-2.5">
-                    {p.bonus.map((b) => (
-                      <li key={b} className="text-xs text-muted-foreground leading-relaxed">{b}</li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
-              <div className="p-8 md:p-10 pt-0">
+              <div className="p-8 pt-0">
                 <a
                   href="#contact"
-                  className={`inline-flex w-full justify-center items-center gap-2 rounded-full px-6 py-4 text-sm font-medium transition-all ${
+                  className={`inline-flex w-full justify-center items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-all ${
                     p.highlighted
                       ? "bg-gold text-primary-foreground hover:shadow-gold hover:-translate-y-0.5"
                       : "bg-white/5 text-foreground hover:bg-white/10 border border-border"
                   }`}
                 >
                   {p.cta}
-                  <span>→</span>
+                  <span aria-hidden>→</span>
                 </a>
               </div>
             </div>
@@ -174,21 +196,106 @@ export function Packages() {
         </div>
 
         {/* Add-ons */}
-        <div className="mt-12 max-w-3xl mx-auto">
-          <div className="relative rounded-3xl glass p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-start gap-5">
-              <div className="h-14 w-14 rounded-2xl bg-gold/10 grid place-items-center text-gold text-xl shrink-0">+</div>
-              <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Optional Add-on</div>
-                <h3 className="mt-2 text-xl font-medium tracking-tight">Meta Ads Management</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Client pays ad spend separately.</p>
+        <div className="mt-32 md:mt-40">
+          <SectionHeader
+            eyebrow="Add-ons"
+            align="center"
+            title={
+              <>
+                Meta Ads,{" "}
+                <span className="text-gradient-gold italic font-normal">handled end-to-end.</span>
+              </>
+            }
+            description="Optional services to launch and scale your ad account alongside your creative retainer."
+          />
+
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            {/* Setup */}
+            <div className="rounded-[2rem] glass p-8 md:p-10 flex flex-col hover:-translate-y-1 hover:border-white/15 transition-all duration-500">
+              <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Meta Ads Setup
               </div>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="text-4xl md:text-5xl font-semibold tracking-tight">₹3,499</span>
+                <span className="text-sm text-muted-foreground">One-time</span>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                For brands launching Meta Ads for the first time, or fixing an account that was
+                configured incorrectly.
+              </p>
+
+              <div className="hairline my-8" />
+
+              <ul className="space-y-3.5 flex-1">
+                {setupIncludes.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" strokeWidth={2.5} />
+                    <span className="text-foreground/90 leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#contact"
+                className="mt-8 inline-flex w-full justify-center items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-border px-6 py-3.5 text-sm font-medium transition-all"
+              >
+                Book Setup <span aria-hidden>→</span>
+              </a>
             </div>
-            <div className="text-right shrink-0">
-              <div className="text-3xl font-semibold tracking-tight text-gradient-gold">₹3,000</div>
-              <div className="text-xs text-muted-foreground">/ month</div>
+
+            {/* Management */}
+            <div className="rounded-[2rem] glass p-8 md:p-10 flex flex-col hover:-translate-y-1 hover:border-white/15 transition-all duration-500">
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                  Meta Ads Management
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gold border border-gold/30 bg-gold/10 rounded-full px-2.5 py-1 whitespace-nowrap">
+                  Growth+ only
+                </div>
+              </div>
+              <div className="mt-6 flex items-baseline gap-2 flex-wrap">
+                <span className="text-4xl md:text-5xl font-semibold tracking-tight">
+                  ₹7,000–₹15,000
+                </span>
+                <span className="text-sm text-muted-foreground">/ month</span>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                Available only with Growth, Scale, or Enterprise packages. Pricing depends on
+                campaign scope, monthly ad spend, ad sets, testing requirements, and optimization
+                frequency.
+              </p>
+
+              <div className="hairline my-8" />
+
+              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-4">
+                Includes
+              </div>
+              <ul className="space-y-3.5 flex-1">
+                {managementIncludes.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" strokeWidth={2.5} />
+                    <span className="text-foreground/90 leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-2xl border border-border bg-white/[0.02] p-4 text-xs text-muted-foreground leading-relaxed">
+                Note: Ad spend is paid directly by the client and is not included in the management
+                fee.
+              </div>
+
+              <a
+                href="#contact"
+                className="mt-6 inline-flex w-full justify-center items-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-border px-6 py-3.5 text-sm font-medium transition-all"
+              >
+                Get a Quote <span aria-hidden>→</span>
+              </a>
             </div>
           </div>
+
+          <p className="sr-only">
+            Management pricing factors: {managementFactors.join(", ")}.
+          </p>
         </div>
       </div>
     </section>
